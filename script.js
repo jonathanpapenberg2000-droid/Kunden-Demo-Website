@@ -4,9 +4,15 @@ const navAnchors = document.querySelectorAll(".nav-links a");
 const revealElements = document.querySelectorAll(".reveal");
 const navbar = document.querySelector(".navbar");
 
+const closeMenu = () => {
+  if (!menuToggle || !navLinks) return;
+  navLinks.classList.remove("active");
+  menuToggle.classList.remove("active");
+  menuToggle.setAttribute("aria-expanded", "false");
+};
+
 if (menuToggle && navLinks) {
   menuToggle.setAttribute("aria-expanded", "false");
-
   menuToggle.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("active");
     menuToggle.classList.toggle("active", isOpen);
@@ -14,36 +20,17 @@ if (menuToggle && navLinks) {
   });
 }
 
-navAnchors.forEach((link) => {
-  link.addEventListener("click", () => {
-    if (navLinks) {
-      navLinks.classList.remove("active");
-    }
-
-    if (menuToggle) {
-      menuToggle.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
-    }
-  });
-});
+navAnchors.forEach((link) => link.addEventListener("click", closeMenu));
 
 document.addEventListener("click", (event) => {
   if (!menuToggle || !navLinks) return;
   if (!navLinks.classList.contains("active")) return;
   if (navLinks.contains(event.target) || menuToggle.contains(event.target)) return;
-
-  navLinks.classList.remove("active");
-  menuToggle.classList.remove("active");
-  menuToggle.setAttribute("aria-expanded", "false");
+  closeMenu();
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") return;
-  if (!menuToggle || !navLinks) return;
-
-  navLinks.classList.remove("active");
-  menuToggle.classList.remove("active");
-  menuToggle.setAttribute("aria-expanded", "false");
+  if (event.key === "Escape") closeMenu();
 });
 
 const updateNavbarState = () => {
@@ -58,14 +45,9 @@ const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
 document.querySelectorAll(".nav-links a").forEach((link) => {
   const href = link.getAttribute("href");
-
-  if (!href) return;
-  if (href.startsWith("#")) return;
-  if (href.startsWith("tel:")) return;
-  if (href.startsWith("mailto:")) return;
+  if (!href || href.startsWith("#") || href.startsWith("tel:") || href.startsWith("mailto:")) return;
 
   const normalizedHref = href.replace("./", "");
-
   if ((currentPath === "" || currentPath === "index.html") && normalizedHref === "index.html") {
     link.classList.add("active");
   } else if (normalizedHref === currentPath) {
@@ -73,26 +55,60 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
   }
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealElements.forEach((element) => {
+    const siblings = Array.from(element.parentElement?.querySelectorAll(".reveal") || []);
+    const index = siblings.indexOf(element);
+    if (index > 0) element.style.setProperty("--reveal-delay", `${Math.min(index * 70, 280)}ms`);
+    observer.observe(element);
+  });
+} else {
+  revealElements.forEach((element) => element.classList.add("show"));
+}
+
+const tiltCards = document.querySelectorAll(".stat-item, .info-card, .reference-card, .testimonial-card");
+const canUseHoverTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+if (canUseHoverTilt) {
+  tiltCards.forEach((card) => {
+    card.addEventListener("mousemove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.setProperty("--tilt-x", `${(-y * 4).toFixed(2)}deg`);
+      card.style.setProperty("--tilt-y", `${(x * 4).toFixed(2)}deg`);
     });
-  },
-  {
-    threshold: 0.15,
-  }
-);
 
-revealElements.forEach((element) => {
-  const siblings = Array.from(element.parentElement?.querySelectorAll(".reveal") || []);
-  const index = siblings.indexOf(element);
+    card.addEventListener("mouseleave", () => {
+      card.style.removeProperty("--tilt-x");
+      card.style.removeProperty("--tilt-y");
+    });
+  });
+}
 
-  if (index > 0) {
-    element.style.setProperty("--reveal-delay", `${Math.min(index * 70, 280)}ms`);
-  }
+document.querySelectorAll(".flip-card").forEach((card) => {
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-pressed", "false");
 
-  observer.observe(element);
+  const toggleCard = () => {
+    const isFlipped = card.classList.toggle("is-flipped");
+    card.setAttribute("aria-pressed", String(isFlipped));
+  };
+
+  card.addEventListener("click", toggleCard);
+  card.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    toggleCard();
+  });
 });
