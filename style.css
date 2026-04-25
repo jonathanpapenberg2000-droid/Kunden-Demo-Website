@@ -132,8 +132,8 @@ img {
   min-height: 38px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 18px;
   padding: 6px 0;
   color: #40545d;
   font-size: 13px;
@@ -148,11 +148,12 @@ img {
 }
 
 .topbar-left {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .topbar-right {
-  justify-content: flex-start;
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .topbar-left span,
@@ -206,6 +207,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 14px;
+  flex: 0 0 auto;
   min-width: 0;
   padding: 9px 16px 9px 10px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -260,6 +262,7 @@ img {
   display: flex;
   align-items: center;
   gap: 6px;
+  margin-left: auto;
   padding: 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.07);
@@ -1715,6 +1718,7 @@ img {
   .topbar-right {
     justify-content: center;
     gap: 6px 8px;
+    margin-left: 0;
   }
 
   .topbar-left span,
@@ -1727,6 +1731,7 @@ img {
 
   .nav-inner {
     min-height: 76px;
+    gap: 14px;
   }
 
   .site-logo {
@@ -1759,6 +1764,7 @@ img {
     left: 16px;
     right: 16px;
     display: grid;
+    margin-left: 0;
     gap: 8px;
     padding: 14px;
     border-radius: 22px;
@@ -1889,20 +1895,78 @@ img {
     padding: 62px 0;
   }
 
-  .topbar-left span:nth-child(2) {
+  .topbar {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 249, 249, 0.96));
+    box-shadow: 0 8px 22px rgba(5, 18, 25, 0.05);
+  }
+
+  .topbar-inner {
+    min-height: 34px;
+    justify-content: center;
+    padding: 5px 0;
+  }
+
+  .topbar-left {
     display: none;
+  }
+
+  .topbar-right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .topbar-right span,
+  .topbar-right a {
+    min-height: 26px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .topbar-right span {
+    color: #17313b;
+    font-weight: 900;
+  }
+
+  .topbar-right a {
+    flex: 0 0 auto;
+  }
+
+  .nav-inner {
+    min-height: 70px;
   }
 
   .logo {
-    padding: 7px;
+    max-width: calc(100% - 60px);
+    gap: 9px;
+    padding: 7px 10px 7px 7px;
+    border-radius: 18px;
   }
 
   .brand-label {
-    display: none;
+    display: inline-flex;
+    max-width: 124px;
+    font-size: 11.5px;
+    line-height: 1.15;
+    white-space: normal;
   }
 
   .site-logo {
-    height: 44px;
+    height: 42px;
+    flex: 0 0 auto;
+  }
+
+  .brand-label::before {
+    height: 25px;
+    margin-right: 9px;
+  }
+
+  .menu-toggle {
+    width: 46px;
+    height: 46px;
+    border-radius: 15px;
   }
 
   .hero {
