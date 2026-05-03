@@ -2201,7 +2201,6 @@ body:has(.main-logo) .nav-links .nav-cta::after {
     line-height: 1.65;
   }
 
-  .stats-grid,
   .flip-grid,
   .reference-grid,
   .info-grid,
@@ -2438,9 +2437,14 @@ body:has(.main-logo) .nav-links .nav-cta::after {
     padding: 18px 0;
   }
 
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
   .stat-item {
     min-height: 0;
-    padding: 20px;
+    padding: 18px;
   }
 
   .flip-card {
@@ -2841,6 +2845,28 @@ body:has(.main-logo) .nav-links .nav-cta::after {
 
   .stats-band {
     padding: 14px 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .stat-item {
+    min-height: 146px;
+    padding: 15px 14px;
+    border-radius: 16px;
+  }
+
+  .stat-item strong {
+    margin-bottom: 7px;
+    font-size: clamp(22px, 6.4vw, 27px);
+    line-height: 1;
+  }
+
+  .stat-item span {
+    font-size: 13px;
+    line-height: 1.48;
   }
 
   .section-head h2,
