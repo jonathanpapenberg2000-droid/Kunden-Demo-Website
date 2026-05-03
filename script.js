@@ -101,6 +101,7 @@ document.querySelectorAll(".flip-card").forEach((card) => {
   card.setAttribute("tabindex", "0");
   card.setAttribute("role", "button");
   card.setAttribute("aria-pressed", "false");
+  const hasFineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   card.querySelectorAll(".flip-back .card-cta-link-zone").forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -120,6 +121,15 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     const link = event.target.closest("a");
     if (link) {
       event.stopPropagation();
+      return;
+    }
+    const ctaLink = card.querySelector(".flip-back .card-cta-link-zone, .flip-back .mini-link");
+    const rect = card.getBoundingClientRect();
+    const isLowerLinkZone = event.clientY >= rect.top + rect.height * 0.7;
+    const isBackVisible = card.classList.contains("is-flipped") || (hasFineHover && card.matches(":hover"));
+    if (ctaLink && isBackVisible && isLowerLinkZone) {
+      event.stopPropagation();
+      window.location.href = ctaLink.href;
       return;
     }
     toggleCard();
