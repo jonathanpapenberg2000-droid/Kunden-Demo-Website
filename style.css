@@ -2830,6 +2830,21 @@ body:has(.main-logo) .nav-links .nav-cta::after {
     padding: 18px;
   }
 
+  .flip-front {
+    justify-content: flex-start;
+  }
+
+  .flip-front h3 {
+    min-height: 48px;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 30px;
+  }
+
+  .flip-front p {
+    margin-top: 18px;
+  }
+
   .flip-face h3,
   .reference-body h3,
   .info-card h3 {
@@ -3029,6 +3044,15 @@ body:has(.main-logo) .nav-links .nav-cta::after {
 
   .flip-face {
     padding: 16px;
+  }
+
+  .flip-front h3 {
+    min-height: 44px;
+    margin-top: 28px;
+  }
+
+  .flip-front p {
+    margin-top: 14px;
   }
 
   .flip-face h3 {
