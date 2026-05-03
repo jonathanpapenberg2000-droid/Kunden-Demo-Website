@@ -117,21 +117,37 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     card.setAttribute("aria-pressed", String(isFlipped));
   };
 
+  const navigateFromLowerLinkZone = (event) => {
+    const ctaLink = card.querySelector(".flip-back .card-cta-link-zone, .flip-back .mini-link");
+    if (!ctaLink || !card.classList.contains("is-flipped")) return false;
+
+    const rect = card.getBoundingClientRect();
+    const clientY = event.clientY ?? event.changedTouches?.[0]?.clientY;
+    if (typeof clientY !== "number") return false;
+    if (clientY < rect.top + rect.height * 0.78) return false;
+
+    event.preventDefault();
+    event.stopPropagation();
+    window.location.href = ctaLink.href;
+    return true;
+  };
+
+  card.addEventListener(
+    "pointerup",
+    (event) => {
+      if (hasFineHover && event.pointerType !== "touch") return;
+      navigateFromLowerLinkZone(event);
+    },
+    { capture: true }
+  );
+
   card.addEventListener("click", (event) => {
     const link = event.target.closest("a");
     if (link) {
       event.stopPropagation();
       return;
     }
-    const ctaLink = card.querySelector(".flip-back .card-cta-link-zone, .flip-back .mini-link");
-    const rect = card.getBoundingClientRect();
-    const isLowerLinkZone = event.clientY >= rect.top + rect.height * 0.7;
-    const isBackVisible = card.classList.contains("is-flipped") || (hasFineHover && card.matches(":hover"));
-    if (ctaLink && isBackVisible && isLowerLinkZone) {
-      event.stopPropagation();
-      window.location.href = ctaLink.href;
-      return;
-    }
+    if (navigateFromLowerLinkZone(event)) return;
     toggleCard();
   });
   card.addEventListener("keydown", (event) => {
