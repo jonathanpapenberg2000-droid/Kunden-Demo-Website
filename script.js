@@ -106,6 +106,7 @@ document.querySelectorAll(".flip-card").forEach((card) => {
   card.querySelectorAll(".flip-back .card-cta-link-zone").forEach((link) => {
     link.addEventListener("click", (event) => {
       event.stopPropagation();
+      window.location.href = link.href;
     });
     link.addEventListener("keydown", (event) => {
       event.stopPropagation();
