@@ -9,6 +9,7 @@ const closeMenu = () => {
   navLinks.classList.remove("active");
   menuToggle.classList.remove("active");
   menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Menü öffnen");
 };
 
 if (menuToggle && navLinks) {
@@ -17,6 +18,7 @@ if (menuToggle && navLinks) {
     const isOpen = navLinks.classList.toggle("active");
     menuToggle.classList.toggle("active", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
   });
 }
 
@@ -105,7 +107,10 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     card.setAttribute("aria-pressed", String(isFlipped));
   };
 
-  card.addEventListener("click", toggleCard);
+  card.addEventListener("click", (event) => {
+    if (event.target.closest("a")) return;
+    toggleCard();
+  });
   card.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();

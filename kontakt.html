@@ -29,7 +29,7 @@
             <small>Meisterbetrieb</small>
           </span>
         </a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
         <div class="nav-links" id="navLinks"><a href="index.html">Start</a><a href="leistungen.html">Leistungen</a><a href="badmodernisierung.html">Renovierung</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html" class="nav-cta">Angebot anfragen</a></div>
       </div>
     </nav>
@@ -56,14 +56,14 @@
               <div>Termine: Mo-Fr 08:00-17:00 Uhr</div>
             </div>
           </div>
-          <div class="contact-card reveal">
+          <div class="contact-card reveal" id="anfrage">
             <h3>Anfrage senden</h3>
-            <form>
-              <input type="text" placeholder="Ihr Name" />
-              <input type="text" placeholder="Telefon oder E-Mail" />
-              <input type="text" placeholder="Projektart, z. B. Innenanstrich oder Fassade" />
-              <textarea placeholder="Worum geht es bei Ihrem Projekt?"></textarea>
-              <button type="button" class="btn btn-primary full-width">Angebot anfragen</button>
+            <form action="mailto:info@fp-maler.de" method="post" enctype="text/plain">
+              <input type="text" name="Name" placeholder="Ihr Name" />
+              <input type="text" name="Kontakt" placeholder="Telefon oder E-Mail" />
+              <input type="text" name="Projektart" placeholder="Projektart, z. B. Innenanstrich oder Fassade" />
+              <textarea name="Nachricht" placeholder="Worum geht es bei Ihrem Projekt?"></textarea>
+              <button type="submit" class="btn btn-primary full-width">Angebot anfragen</button>
             </form>
           </div>
         </div>
@@ -73,7 +73,7 @@
         <div class="container info-grid">
           <article class="info-card reveal"><div class="icon phone"></div><h3>Anrufen</h3><p>Für schnelle Rückfragen oder eine erste Einschätzung am Telefon.</p><a href="tel:01234567890" class="mini-link">Jetzt anrufen</a></article>
           <article class="info-card reveal"><div class="icon mail"></div><h3>E-Mail</h3><p>Ideal, wenn Sie Fotos, Maße oder erste Projektinfos mitsenden möchten.</p><a href="mailto:info@fp-maler.de" class="mini-link">E-Mail senden</a></article>
-          <article class="info-card reveal"><div class="icon advice"></div><h3>Vor-Ort-Termin</h3><p>Wir prüfen Flächen, beraten zu Materialien und klären den Aufwand.</p><a href="kontakt.html" class="mini-link">Termin anfragen</a></article>
+          <article class="info-card reveal"><div class="icon advice"></div><h3>Vor-Ort-Termin</h3><p>Wir prüfen Flächen, beraten zu Materialien und klären den Aufwand.</p><a href="kontakt.html#anfrage" class="mini-link">Termin anfragen</a></article>
         </div>
       </section>
     </main>
@@ -82,6 +82,10 @@
       <div class="container footer-grid">
         <div><div class="footer-brand">F&P Malerbetrieb</div><p>Kontakt für Malerarbeiten, Renovierung, Fassaden und Farbberatung.</p></div>
         <div class="footer-links"><a href="index.html">Start</a><a href="leistungen.html">Leistungen</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a></div>
+      </div>
+      <div class="container footer-legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
       </div>
     </footer>
   </div>
