@@ -102,6 +102,12 @@ document.querySelectorAll(".flip-card").forEach((card) => {
   card.setAttribute("role", "button");
   card.setAttribute("aria-pressed", "false");
 
+  card.querySelectorAll(".flip-back .mini-link").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+  });
+
   const toggleCard = () => {
     const isFlipped = card.classList.toggle("is-flipped");
     card.setAttribute("aria-pressed", String(isFlipped));
