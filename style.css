@@ -2901,7 +2901,15 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   }
 
   .flip-back {
-    gap: 8px;
+    gap: 2px;
+  }
+
+  .flip-back h3 {
+    margin-bottom: 0;
+  }
+
+  body:has(.screenshot-hero) .stats-band + .section .flip-back h3 {
+    margin-bottom: 0;
   }
 
   .flip-back h3 {
@@ -3178,12 +3186,17 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   }
 
   .flip-back {
-    gap: 7px;
+    gap: 1px;
   }
 
   .flip-back h3 {
     font-size: 17px;
     line-height: 1.08;
+    margin-bottom: 0;
+  }
+
+  body:has(.screenshot-hero) .stats-band + .section .flip-back h3 {
+    margin-bottom: 0;
   }
 
   .flip-face {
