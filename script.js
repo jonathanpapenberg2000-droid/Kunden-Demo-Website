@@ -126,7 +126,7 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     const rect = card.getBoundingClientRect();
     const clientY = event.clientY ?? event.changedTouches?.[0]?.clientY;
     if (typeof clientY !== "number") return false;
-    if (clientY < rect.top + rect.height * 0.78) return false;
+    if (clientY < rect.top + rect.height * 0.8) return false;
 
     event.preventDefault();
     event.stopPropagation();
