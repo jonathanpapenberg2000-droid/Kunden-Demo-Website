@@ -98,8 +98,6 @@ if (canUseHoverTilt) {
 }
 
 document.querySelectorAll(".flip-card").forEach((card) => {
-  const canToggleOnClick = !window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
   card.setAttribute("tabindex", "0");
   card.setAttribute("role", "button");
   card.setAttribute("aria-pressed", "false");
@@ -113,10 +111,8 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     const link = event.target.closest("a");
     if (link) {
       event.stopPropagation();
-      window.location.href = link.href;
       return;
     }
-    if (!canToggleOnClick) return;
     toggleCard();
   });
   card.addEventListener("keydown", (event) => {
@@ -124,10 +120,5 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     if (event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();
     toggleCard();
-  });
-  card.addEventListener("mouseleave", () => {
-    if (canToggleOnClick) return;
-    card.classList.remove("is-flipped");
-    card.setAttribute("aria-pressed", "false");
   });
 });

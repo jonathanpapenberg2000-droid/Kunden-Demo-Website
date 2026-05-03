@@ -554,9 +554,13 @@ img {
   transition: transform 0.75s var(--ease);
 }
 
-.flip-card:hover .flip-card-inner,
 .flip-card.is-flipped .flip-card-inner {
   transform: rotateY(180deg);
+}
+
+.flip-card:hover .flip-face {
+  border-color: rgba(201, 130, 45, 0.28);
+  box-shadow: 0 22px 54px rgba(24, 33, 36, 0.13);
 }
 
 .flip-face {
