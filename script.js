@@ -120,7 +120,8 @@ document.querySelectorAll(".flip-card").forEach((card) => {
 
   const navigateFromLowerLinkZone = (event) => {
     const ctaLink = card.querySelector(".flip-back .card-cta-link-zone, .flip-back .mini-link");
-    if (!ctaLink || !card.classList.contains("is-flipped")) return false;
+    const isBackVisible = card.classList.contains("is-flipped") || (hasFineHover && card.matches(":hover"));
+    if (!ctaLink || !isBackVisible) return false;
 
     const rect = card.getBoundingClientRect();
     const clientY = event.clientY ?? event.changedTouches?.[0]?.clientY;
