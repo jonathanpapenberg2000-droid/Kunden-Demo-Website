@@ -118,8 +118,6 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     card.setAttribute("aria-pressed", String(isFlipped));
   };
 
-  const directCardLink = card.dataset.cardLink;
-
   const navigateFromLowerLinkZone = (event) => {
     const ctaLink = card.querySelector(".flip-back .card-cta-link-zone, .flip-back .mini-link");
     const isBackVisible = card.classList.contains("is-flipped") || (hasFineHover && card.matches(":hover"));
@@ -151,10 +149,6 @@ document.querySelectorAll(".flip-card").forEach((card) => {
       event.stopPropagation();
       return;
     }
-    if (directCardLink) {
-      window.location.href = directCardLink;
-      return;
-    }
     if (navigateFromLowerLinkZone(event)) return;
     toggleCard();
   });
@@ -162,10 +156,6 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     if (event.target.closest("a")) return;
     if (event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();
-    if (directCardLink) {
-      window.location.href = directCardLink;
-      return;
-    }
     toggleCard();
   });
 });
