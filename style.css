@@ -1618,6 +1618,18 @@ body:has(.screenshot-hero) .stats-band + .section {
   padding-top: 28px;
 }
 
+body:has(.screenshot-hero) .stats-band {
+  display: none;
+}
+
+body:has(.screenshot-hero) .stats-band + .section {
+  padding-top: 58px;
+}
+
+body:has(.screenshot-hero) .stats-band + .section .flip-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .stats-band + .section,
 .section + .page-cta,
 .reference-grid + .section {
