@@ -106,6 +106,9 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     link.addEventListener("click", (event) => {
       event.stopPropagation();
     });
+    link.addEventListener("keydown", (event) => {
+      event.stopPropagation();
+    });
   });
 
   const toggleCard = () => {
