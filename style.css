@@ -2929,7 +2929,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   .flip-face h3,
   .reference-body h3,
   .info-card h3 {
-    font-size: 21px;
+    font-size: 20px;
   }
 
   .flip-front p,
@@ -3170,7 +3170,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   }
 
   .flip-face h3 {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .flip-front p,
