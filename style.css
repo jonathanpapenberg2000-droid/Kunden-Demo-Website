@@ -2612,13 +2612,13 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   }
 
   body:has(.screenshot-hero) .stats-band + .section .flip-front h3 {
-    top: 108px;
+    top: 96px;
     left: 18px;
     right: 18px;
   }
 
   body:has(.screenshot-hero) .stats-band + .section .flip-front p {
-    top: 150px;
+    top: 136px;
     left: 18px;
     right: 18px;
   }
@@ -2910,7 +2910,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
 
   .flip-front h3 {
     position: absolute;
-    top: 112px;
+    top: 96px;
     left: 18px;
     right: 18px;
     min-height: 0;
@@ -2920,7 +2920,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
 
   .flip-front p {
     position: absolute;
-    top: 156px;
+    top: 138px;
     left: 18px;
     right: 18px;
     margin: 0;
@@ -3138,13 +3138,13 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   }
 
   body:has(.screenshot-hero) .stats-band + .section .flip-front h3 {
-    top: 98px;
+    top: 88px;
     left: 16px;
     right: 16px;
   }
 
   body:has(.screenshot-hero) .stats-band + .section .flip-front p {
-    top: 134px;
+    top: 122px;
     left: 16px;
     right: 16px;
   }
@@ -3158,13 +3158,13 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   }
 
   .flip-front h3 {
-    top: 102px;
+    top: 88px;
     left: 16px;
     right: 16px;
   }
 
   .flip-front p {
-    top: 140px;
+    top: 122px;
     left: 16px;
     right: 16px;
   }
