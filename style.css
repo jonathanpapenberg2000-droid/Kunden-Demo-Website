@@ -2545,6 +2545,10 @@ body:has(.main-logo) .nav-links .nav-cta::after {
     gap: 18px;
   }
 
+  body:has(.screenshot-hero) .stats-band + .section .flip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .stats-band {
     padding: 18px 0;
   }
