@@ -102,7 +102,7 @@ document.querySelectorAll(".flip-card").forEach((card) => {
   card.setAttribute("role", "button");
   card.setAttribute("aria-pressed", "false");
 
-  card.querySelectorAll(".flip-back .mini-link").forEach((link) => {
+  card.querySelectorAll(".flip-back .card-cta-link-zone").forEach((link) => {
     link.addEventListener("click", (event) => {
       event.stopPropagation();
     });

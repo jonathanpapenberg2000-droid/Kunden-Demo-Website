@@ -595,6 +595,7 @@ img {
 }
 
 .flip-back {
+  position: absolute;
   justify-content: flex-start;
   gap: 18px;
   color: #fff;
@@ -670,16 +671,22 @@ img {
   content: " ->";
 }
 
-.flip-back .mini-link {
+.flip-back .card-cta-link-zone {
   position: absolute;
   left: 0;
   right: 0;
+  top: auto;
   bottom: 0;
-  z-index: 4;
+  z-index: 20;
   width: 100%;
+  min-height: 0;
   height: 38%;
+  display: flex;
   align-items: flex-end;
+  justify-content: flex-start;
   padding: 0 24px 24px;
+  box-sizing: border-box;
+  pointer-events: auto;
 }
 
 .split {
@@ -2495,7 +2502,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
     padding: 22px;
   }
 
-  .flip-back .mini-link {
+  .flip-back .card-cta-link-zone {
     padding: 0 22px 22px;
   }
 
@@ -2918,7 +2925,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
     min-height: 248px;
   }
 
-  .flip-back .mini-link {
+  .flip-back .card-cta-link-zone {
     padding: 0 20px 20px;
   }
 
