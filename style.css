@@ -1883,7 +1883,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
       rgba(255, 255, 255, 0.78) 55%,
       rgba(255, 255, 255, 0.36) 64%,
       rgba(255, 255, 255, 0.04) 73%),
-    url("Maler Mainpage.png") right 26% / auto 92% no-repeat;
+    url("Maler Mainpage.png") right bottom / auto 100% no-repeat;
   background-color: #fff;
 }
 
