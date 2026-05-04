@@ -1636,7 +1636,11 @@ img {
 
 /* Screenshot-matched start page header and hero. */
 body:has(.screenshot-hero) {
-  background: #fff;
+  background:
+    linear-gradient(rgba(24, 33, 36, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 33, 36, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, #fffdf8 0%, #f7f6f1 48%, #eef5f2 100%);
+  background-size: 72px 72px, 72px 72px, auto;
 }
 
 body:has(.screenshot-hero) .stats-band + .section {
@@ -1880,6 +1884,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
       rgba(255, 255, 255, 0.36) 64%,
       rgba(255, 255, 255, 0.04) 73%),
     url("Maler Mainpage.png") right 26% / auto 92% no-repeat;
+  background-color: #fff;
 }
 
 .screenshot-hero-inner {
