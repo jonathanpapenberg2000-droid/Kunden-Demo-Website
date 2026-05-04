@@ -1872,7 +1872,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
 
 .screenshot-hero {
   min-height: 674px;
-  padding: 14px 0 60px;
+  padding: 14px 0 0;
   display: block;
   overflow: hidden;
   background:
