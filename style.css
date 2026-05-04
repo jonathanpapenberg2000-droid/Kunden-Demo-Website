@@ -2901,7 +2901,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   }
 
   .flip-back {
-    gap: 8px;
+    gap: 10px;
   }
 
   .flip-back h3 {
@@ -3186,7 +3186,7 @@ body:has(.main-logo) .nav-links .nav-cta::after {
   }
 
   .flip-back {
-    gap: 6px;
+    gap: 8px;
   }
 
   .flip-back h3 {
