@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kontakt | F&P Malerbetrieb</title>
+  <title>Kontakt | F&amp;P Malerbetrieb</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="contact-page">
   <div class="site-shell">
     <header class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-left">
-          <span class="topbar-item topbar-time">Mo–Fr 08:00–17:00 Uhr</span>
-          <span class="topbar-item topbar-location">Musterstadt & Umgebung</span>
+          <span class="topbar-item topbar-time">Mo&ndash;Fr 08:00&ndash;17:00 Uhr</span>
+          <span class="topbar-item topbar-location">Musterstadt &amp; Umgebung</span>
         </div>
         <div class="topbar-right">
           <span class="topbar-item topbar-phone">Kostenlose Erstberatung</span>
@@ -25,63 +25,104 @@
         <a href="index.html" class="logo main-logo">
           <span class="main-logo-icon" aria-hidden="true"></span>
           <span class="main-logo-text">
-            <strong>Malerarbeiten &<br />Raumgestaltung</strong>
+            <strong>Malerarbeiten &amp;<br />Raumgestaltung</strong>
             <small>Meisterbetrieb</small>
           </span>
         </a>
-        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
-        <div class="nav-links" id="navLinks"><a href="index.html">Start</a><a href="leistungen.html">Leistungen</a><a href="badmodernisierung.html">Renovierung</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html" class="nav-cta">Angebot anfragen</a></div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Men&uuml; &ouml;ffnen"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="navLinks"><a href="index.html">Start</a><a href="leistungen.html">Leistungen</a><a href="badmodernisierung.html">Renovierung</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">&Uuml;ber uns</a><a href="kontakt.html" class="nav-cta">Angebot anfragen</a></div>
       </div>
     </nav>
 
     <main>
-      <section class="subhero section">
-        <div class="container section-head reveal">
-          <p class="section-kicker">Kontakt</p>
-          <h2>Projekt besprechen und Angebot anfragen</h2>
-          <p>Schildern Sie uns kurz, welche Räume, Flächen oder Fassaden Sie gestalten möchten. Wir melden uns zur Abstimmung.</p>
+      <section class="contact-hero section">
+        <div class="container contact-hero-grid">
+          <div class="contact-hero-copy reveal">
+            <p class="section-kicker">Kontakt</p>
+            <h1>Projekt besprechen und Angebot anfragen</h1>
+            <p>Schildern Sie uns kurz, welche R&auml;ume, Fl&auml;chen oder Fassaden Sie gestalten m&ouml;chten. Wir beraten Sie direkt im Chat.</p>
+          </div>
+          <div class="contact-hero-visual reveal" aria-hidden="true">
+            <img src="images/eimer.png" alt="" />
+          </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container contact-grid">
-          <div class="contact-copy reveal">
-            <p class="section-kicker">Direkt erreichbar</p>
-            <h2>Wir beraten Sie persönlich und unkompliziert.</h2>
-            <p>Ob Innenanstrich, Fassade, Renovierung oder Farbberatung: Wir klären die nächsten Schritte mit Ihnen.</p>
-            <div class="contact-points">
-              <div>Telefon: 01234 567890</div>
-              <div>E-Mail: info@fp-maler.de</div>
-              <div>Adresse: Musterstraße 12, 12345 Musterstadt</div>
-              <div>Termine: Mo-Fr 08:00-17:00 Uhr</div>
+      <section class="section contact-chat-section" id="anfrage">
+        <div class="container contact-chat-panel">
+          <div class="chat-benefits reveal">
+            <p class="section-kicker">Chat-Beratung</p>
+            <h2>Direkt im Chat beraten lassen</h2>
+            <div class="chat-benefit-list">
+              <article class="chat-benefit">
+                <div class="icon chat" aria-hidden="true"></div>
+                <div>
+                  <h3>Schnell &amp; unkompliziert</h3>
+                  <p>Stellen Sie Ihre Frage direkt im Chat und erhalten Sie zeitnah eine kompetente Antwort.</p>
+                </div>
+              </article>
+              <article class="chat-benefit">
+                <div class="icon shield" aria-hidden="true"></div>
+                <div>
+                  <h3>Pers&ouml;nlich &amp; individuell</h3>
+                  <p>Wir nehmen uns Zeit f&uuml;r Ihr Projekt und finden die passende L&ouml;sung f&uuml;r Ihre W&uuml;nsche.</p>
+                </div>
+              </article>
+              <article class="chat-benefit">
+                <div class="icon clock" aria-hidden="true"></div>
+                <div>
+                  <h3>Kostenlos &amp; unverbindlich</h3>
+                  <p>Die Erstberatung im Chat ist f&uuml;r Sie kostenlos und unverbindlich.</p>
+                </div>
+              </article>
             </div>
           </div>
-          <div class="contact-card reveal" id="anfrage">
-            <h3>Anfrage senden</h3>
-            <form action="mailto:info@fp-maler.de" method="post" enctype="text/plain">
-              <input type="text" name="Name" placeholder="Ihr Name" />
-              <input type="text" name="Kontakt" placeholder="Telefon oder E-Mail" />
-              <input type="text" name="Projektart" placeholder="Projektart, z. B. Innenanstrich oder Fassade" />
-              <textarea name="Nachricht" placeholder="Worum geht es bei Ihrem Projekt?"></textarea>
-              <button type="submit" class="btn btn-primary full-width">Angebot anfragen</button>
-            </form>
+
+          <div class="embedded-chatbot-card reveal">
+            <header class="embedded-chatbot-header">
+              <div class="embedded-chatbot-brand">
+                <div class="embedded-chatbot-icon icon paint" aria-hidden="true"></div>
+                <div>
+                  <strong>F&amp;P Anfrageannahme</strong>
+                  <span>Maler- und Renovierungsanfragen strukturiert aufnehmen lassen</span>
+                </div>
+              </div>
+            </header>
+            <div class="embedded-chatbot-frame-wrap">
+              <iframe
+                id="embedded-chatbot-frame"
+                data-embedded-chatbot-frame
+                data-widget-src="https://demo-handwerker.onrender.com/widget.html"
+                data-bot-id="fp-demo"
+                data-widget-title="F&amp;P Anfrageannahme"
+                title="F&amp;P Anfrageannahme Chatbot"
+                loading="eager"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section contact-personal-section">
+        <div class="container contact-personal-copy reveal">
+          <h2>Wir beraten Sie pers&ouml;nlich und unkompliziert.</h2>
+          <p>Ob Innenanstrich, Fassade, Renovierung oder Farbberatung: Wir kl&auml;ren die n&auml;chsten Schritte mit Ihnen - schnell, transparent und auf Augenh&ouml;he.</p>
+        </div>
+      </section>
+
+      <section class="section contact-options-section">
         <div class="container info-grid">
-          <article class="info-card reveal"><div class="icon phone"></div><h3>Anrufen</h3><p>Für schnelle Rückfragen oder eine erste Einschätzung am Telefon.</p><a href="tel:01234567890" class="mini-link">Jetzt anrufen</a></article>
-          <article class="info-card reveal"><div class="icon mail"></div><h3>E-Mail</h3><p>Ideal, wenn Sie Fotos, Maße oder erste Projektinfos mitsenden möchten.</p><a href="mailto:info@fp-maler.de" class="mini-link">E-Mail senden</a></article>
-          <article class="info-card reveal"><div class="icon advice"></div><h3>Vor-Ort-Termin</h3><p>Wir prüfen Flächen, beraten zu Materialien und klären den Aufwand.</p><a href="kontakt.html#anfrage" class="mini-link">Termin anfragen</a></article>
+          <article class="info-card reveal"><div class="icon phone"></div><h3>Anrufen</h3><p>F&uuml;r schnelle R&uuml;ckfragen oder eine erste Einsch&auml;tzung am Telefon.</p><a href="tel:01234567890" class="mini-link">Jetzt anrufen</a></article>
+          <article class="info-card reveal"><div class="icon mail"></div><h3>E-Mail</h3><p>Ideal, wenn Sie Fotos, Ma&szlig;e oder erste Projektinfos mitsenden m&ouml;chten.</p><a href="mailto:info@fp-maler.de" class="mini-link">E-Mail senden</a></article>
+          <article class="info-card reveal"><div class="icon advice"></div><h3>Vor-Ort-Termin</h3><p>Wir pr&uuml;fen Fl&auml;chen, beraten zu Materialien und kl&auml;ren den Aufwand.</p><a href="kontakt.html#anfrage" class="mini-link">Termin anfragen</a></article>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="container footer-grid">
-        <div><div class="footer-brand">F&P Malerbetrieb</div><p>Kontakt für Malerarbeiten, Renovierung, Fassaden und Farbberatung.</p></div>
-        <div class="footer-links"><a href="index.html">Start</a><a href="leistungen.html">Leistungen</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a></div>
+        <div><div class="footer-brand">F&amp;P Malerbetrieb</div><p>Kontakt f&uuml;r Malerarbeiten, Renovierung, Fassaden und Farbberatung.</p></div>
+        <div class="footer-links"><a href="index.html">Start</a><a href="leistungen.html">Leistungen</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">&Uuml;ber uns</a></div>
       </div>
       <div class="container footer-legal">
         <a href="impressum.html">Impressum</a>
@@ -90,6 +131,5 @@
     </footer>
   </div>
   <script src="script.js"></script>
-  <script src="https://demo-handwerker.onrender.com/loader.js" data-bot-id="fp-demo" data-position="right" data-title="F&P Chat" defer></script>
 </body>
 </html>

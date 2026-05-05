@@ -159,3 +159,49 @@ document.querySelectorAll(".flip-card").forEach((card) => {
     toggleCard();
   });
 });
+
+const embeddedChatbotFrame = document.querySelector("[data-embedded-chatbot-frame]");
+
+if (embeddedChatbotFrame) {
+  const widgetUrl = new URL(
+    embeddedChatbotFrame.dataset.widgetSrc || "https://demo-handwerker.onrender.com/widget.html",
+    window.location.href
+  );
+  const botId = embeddedChatbotFrame.dataset.botId || "fp-demo";
+  const widgetTitle = embeddedChatbotFrame.dataset.widgetTitle || "F&P Anfrageannahme";
+
+  widgetUrl.searchParams.set("botId", botId);
+  widgetUrl.searchParams.set("sourceUrl", window.location.href);
+  widgetUrl.searchParams.set("sourceHost", window.location.host);
+  widgetUrl.searchParams.set("sourcePath", window.location.pathname);
+  widgetUrl.searchParams.set("pageTitle", document.title || "");
+  widgetUrl.searchParams.set("widgetTitle", widgetTitle);
+
+  embeddedChatbotFrame.src = widgetUrl.href;
+
+  const fitEmbeddedChatbot = () => {
+    const frameWrap = embeddedChatbotFrame.closest(".embedded-chatbot-frame-wrap");
+    if (!frameWrap) return;
+
+    const baseMobileWidth = 440;
+    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+    const wrapWidth = frameWrap.clientWidth;
+    const availableWidth = Math.max(0, Math.min(wrapWidth || viewportWidth, viewportWidth - 24));
+    const shouldScale = viewportWidth <= 700 && availableWidth > 0 && availableWidth < baseMobileWidth;
+
+    if (!shouldScale) {
+      embeddedChatbotFrame.style.width = "";
+      embeddedChatbotFrame.style.height = "";
+      embeddedChatbotFrame.style.transform = "";
+      return;
+    }
+
+    const scale = availableWidth / baseMobileWidth;
+    embeddedChatbotFrame.style.width = `${baseMobileWidth}px`;
+    embeddedChatbotFrame.style.height = `${100 / scale}%`;
+    embeddedChatbotFrame.style.transform = `scale(${scale})`;
+  };
+
+  fitEmbeddedChatbot();
+  window.addEventListener("resize", fitEmbeddedChatbot);
+}
