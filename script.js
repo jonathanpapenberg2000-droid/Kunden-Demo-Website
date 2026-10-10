@@ -164,7 +164,7 @@ const embeddedChatbotFrame = document.querySelector("[data-embedded-chatbot-fram
 
 if (embeddedChatbotFrame) {
   const widgetUrl = new URL(
-    embeddedChatbotFrame.dataset.widgetSrc || "https://demo-handwerker.onrender.com/widget.html",
+    embeddedChatbotFrame.dataset.widgetSrc || "https://malerbot-mini.onrender.com/widget.html",
     window.location.href
   );
   const botId = embeddedChatbotFrame.dataset.botId || "fp-demo";
