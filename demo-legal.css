@@ -1,0 +1,19 @@
+.demo-site-notice { position: relative; z-index: 5; margin: 0; padding: 12px 20px; background: #173f35; color: white; text-align: center; font: 14px/1.6 system-ui, sans-serif; }
+.demo-site-notice strong { color: white; }
+.demo-site-notice a { color: white; text-decoration: underline; text-underline-offset: 3px; }
+.demo-legal-copy { max-width: 900px; margin-inline: auto; line-height: 1.8; overflow-wrap: anywhere; }
+.demo-legal-copy h2 { margin-block: 1.75em .5em; font-size: 1.25rem; }
+.demo-legal-copy p + p { margin-top: .9em; }
+.demo-legal-copy a { text-decoration: underline; text-underline-offset: 3px; }
+.demo-legal-copy [id] { scroll-margin-top: 120px; }
+.demo-chat-toggle { position: fixed; z-index: 10001; right: 20px; bottom: 20px; padding: 15px 20px; border: 0; border-radius: 30px; background: #173f35; color: white; box-shadow: 0 4px 20px #0003; cursor: pointer; font: 600 14px/1.4 system-ui, sans-serif; }
+.demo-chat-panel { position: fixed; z-index: 10000; right: 20px; bottom: 86px; width: min(420px, calc(100vw - 40px)); max-height: calc(100dvh - 110px); overflow: auto; border: 1px solid #d4dfd7; border-radius: 14px; background: white; color: #182124; box-shadow: 0 10px 40px #0003; font: 14px/1.6 system-ui, sans-serif; }
+.demo-chat-panel[hidden], .demo-chat-notice[hidden], iframe[hidden] { display: none !important; }
+.demo-chat-panel > header { display: flex; justify-content: space-between; gap: 10px; padding: 14px 18px; border-bottom: 1px solid #d4dfd7; }
+.demo-chat-panel a, .demo-chat-notice a { color: #173f35; text-decoration: underline; }
+.demo-chat-panel iframe { display: block; width: 100%; height: min(630px, calc(100dvh - 170px)); border: 0; }
+.demo-chat-notice { padding: 24px; background: white; font: 14px/1.7 system-ui, sans-serif; }
+.demo-chat-notice p + p { margin-top: 12px; }
+.demo-chat-notice button { display: block; margin-top: 18px; padding: 12px 20px; border: 0; border-radius: 8px; color: white; background: #173f35; font: 600 14px/1.5 system-ui, sans-serif; cursor: pointer; }
+.embedded-chatbot-frame-wrap:has(.demo-chat-notice:not([hidden])) { min-height: 0; height: auto; padding: 0; }
+@media (max-width: 500px) { .demo-chat-panel { right: 12px; width: calc(100vw - 24px); } .demo-chat-toggle { right: 12px; bottom: 12px; } }

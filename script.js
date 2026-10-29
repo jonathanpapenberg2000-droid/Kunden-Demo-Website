@@ -177,7 +177,7 @@ if (embeddedChatbotFrame) {
   widgetUrl.searchParams.set("pageTitle", document.title || "");
   widgetUrl.searchParams.set("widgetTitle", widgetTitle);
 
-  embeddedChatbotFrame.src = widgetUrl.href;
+  // Connection starts only through the explicit demo start control.
 
   const fitEmbeddedChatbot = () => {
     const frameWrap = embeddedChatbotFrame.closest(".embedded-chatbot-frame-wrap");
