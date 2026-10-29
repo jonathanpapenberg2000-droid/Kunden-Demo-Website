@@ -1,0 +1,12 @@
+{
+  "name": "fp-kunden-demo-website",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "build": "node build.mjs && node scripts/check.mjs && node scripts/package.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

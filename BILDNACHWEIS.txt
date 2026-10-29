@@ -1,0 +1,27 @@
+BILDQUELLEN DER LOKALEN F&P DESIGNSTUDIE
+
+Die bestehenden Fotos wurden aus dem Originalprojekt kopiert. Die Originaldateien wurden nicht verändert.
+
+Die fünf aufgeführten Bilder wurden mit dem eingebauten Imagegen-Tool neu erzeugt. Sie dienen als Illustrationsfotos für diese Designstudie und sind keine zusätzlichen F&P-Projektreferenzen. Die beiden neuen Kachelmotive werden auf der Website als Gestaltungsbeispiele gekennzeichnet.
+
+assets/lackierarbeiten.png
+Prompt:
+Use case: photorealistic-natural. Asset type: illustration photograph for the lacquer-painting service card of a German painter's website. Create a premium natural interior photograph of a freshly lacquered white paneled wooden door and its matching white frame in a light neutral European home. Complete door clearly visible with a subtle satin finish, clean precise edges, small brushed brass handle. Warm daylight, pale grey-beige walls, light oak floor. Landscape 3:2 composition, polished yet realistic, no people, no logos, no text, no watermark. Main subject comfortably fits entirely inside the image so the entire photograph can be displayed without cropping.
+
+assets/spachteltechnik.png
+Prompt:
+Use case: photorealistic-natural. Asset type: illustration photograph for decorative plaster and specialty wall finishes on a German painter's website. Create a premium natural interior photograph centered on an elegant light warm-grey lime-plaster wall showing delicate artisanal trowel texture and soft tonal variation. Minimal narrow oak console, one ceramic vase with a slender branch, small soft side-light shadows, natural European home. Neutral ivory, taupe and warm grey palette. Landscape 3:2 composition with the whole small vignette visible, refined architectural photography, no people, no text, no logos, no watermark.
+
+assets/maler-hero.png
+Prompt:
+Use case: photorealistic-natural. Asset type: wide hero photograph for a premium German painter's website. Landscape panoramic 16:9 composition. An authentic professional painter seen from behind, wearing plain clean white work clothes, carefully applying muted blue-grey paint with a roller to a wall on the left side of a bright empty European home. The worker including his full head, hands and torso comfortably visible, positioned left of center. A broad daylit window in the middle and a simple painter's ladder, a small paint can and protected floor toward the right. Soft natural daylight, calm high-quality craft atmosphere, white walls, slate blue paint, subtle light oak. Architectural photography, realistic natural textures, balanced entire room composition. The image will be displayed entirely without cropping, so compose it as an especially wide photograph, aspect ratio 16:9. No text, no slogans, no signage, no brands, no logos, no watermarks.
+
+Die beiden folgenden Kachelmotive haben jeweils exakt 1448 × 1086 Pixel (4:3). Sie füllen ihre gleich großen Bildflächen ohne freie Ränder aus; Bildformat und Rahmenformat stimmen exakt überein.
+
+assets/projekt-innenraum-v2.png
+Prompt:
+Use case: photorealistic-natural. Asset type: full-bleed portfolio example image for a premium German painter website. OUTPUT FORMAT: exactly 1600 x 1200 pixels, landscape 4:3 aspect ratio, with photograph filling the entire canvas edge to edge. This image must belong to a matching pair of equally sized website photographs. Scene: a bright elegant European dining room connected to a modern cream kitchen. Professionally painted muted sage-grey walls, light oak dining table with beige upholstered chairs, understated pendant light, small natural vase, tall windows admitting clear soft daylight. Show the room and its finished wall surfaces as a convincing tasteful example of interior painting and color consulting. Refined architectural editorial photography, authentic textures, natural perspective, crisp detail, luminous whites and warm neutral colors. Compose important furniture and wall areas comfortably inside the 4:3 frame. No people, no typography, no logos, no watermarks, no white margins, no borders, no letterboxing, no collage.
+
+assets/projekt-fassade-v2.png
+Prompt:
+Use case: photorealistic-natural. Asset type: full-bleed portfolio example image for a premium German painter website. OUTPUT FORMAT: exactly 1600 x 1200 pixels, landscape 4:3 aspect ratio, with photograph filling the entire canvas edge to edge. This image must belong to a matching pair of equally sized website photographs. Scene: a tasteful contemporary detached European house after professional facade painting, clean freshly painted warm-white plaster facade, pale grey base, dark grey window frames and a welcoming entrance with a light natural oak door, neat low greenery and a clean stone pathway. Photograph the house from a flattering modest three-quarter perspective, with the facade and entrance clearly visible and comfortably contained inside the 4:3 frame. Bright soft daylight, refined architectural editorial photography, realistic exterior texture, luminous whites, neutral tones and natural green planting, same polished visual atmosphere as an elegant interior design photograph. No people, no text, no logos, no watermarks, no borders, no white margins, no letterboxing, no collage.

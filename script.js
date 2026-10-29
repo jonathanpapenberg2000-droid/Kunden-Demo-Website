@@ -1,207 +1,26 @@
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-const navAnchors = document.querySelectorAll(".nav-links a");
-const revealElements = document.querySelectorAll(".reveal");
-const navbar = document.querySelector(".navbar");
+'use strict';
+const menuButton=document.querySelector('.menu-toggle');
+const navigation=document.querySelector('.nav');
+function closeMenu(){navigation?.classList.remove('is-open');menuButton?.setAttribute('aria-expanded','false');menuButton?.setAttribute('aria-label','Menü öffnen');}
+menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');navigation.classList.toggle('is-open',open);});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
+navigation?.addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
+document.addEventListener('click',event=>{if(!event.target.closest('.site-header'))closeMenu();});
+window.matchMedia('(min-width: 1051px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
 
-const closeMenu = () => {
-  if (!menuToggle || !navLinks) return;
-  navLinks.classList.remove("active");
-  menuToggle.classList.remove("active");
-  menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "Menü öffnen");
-};
+const filters=document.querySelectorAll('.filter');
+filters.forEach(button=>button.addEventListener('click',()=>{const category=button.dataset.filter;filters.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));let count=0;document.querySelectorAll('[data-category]').forEach(card=>{card.hidden=category!=='all'&&card.dataset.category!==category;if(!card.hidden)count++;});const output=document.querySelector('.gallery-count');if(output)output.textContent=count+(count===1?' Arbeit':' Arbeiten')+' · '+button.textContent;}));
 
-if (menuToggle && navLinks) {
-  menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("active");
-    menuToggle.classList.toggle("active", isOpen);
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
-  });
-}
+const lightbox=document.querySelector('.lightbox');
+let lastProjectTrigger;
+document.querySelectorAll('.project-trigger').forEach(button=>button.addEventListener('click',()=>{lastProjectTrigger=button;const image=button.querySelector('img');lightbox.querySelector('img').src=image.src;lightbox.querySelector('img').alt=image.alt;lightbox.querySelector('h2').textContent=button.dataset.title;lightbox.querySelector('p').textContent=button.dataset.description;lightbox.showModal();document.body.classList.add('modal-open');}));
+lightbox?.querySelector('.lightbox-close').addEventListener('click',()=>lightbox.close());
+lightbox?.addEventListener('click',event=>{if(event.target===lightbox){const bounds=lightbox.getBoundingClientRect();if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)lightbox.close();}});
+lightbox?.addEventListener('close',()=>{document.body.classList.remove('modal-open');lastProjectTrigger?.focus();});
 
-navAnchors.forEach((link) => link.addEventListener("click", closeMenu));
+function revealService(){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target?.matches('details'))target.open=true;}
+revealService();window.addEventListener('hashchange',revealService);
 
-document.addEventListener("click", (event) => {
-  if (!menuToggle || !navLinks) return;
-  if (!navLinks.classList.contains("active")) return;
-  if (navLinks.contains(event.target) || menuToggle.contains(event.target)) return;
-  closeMenu();
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
-});
-
-const updateNavbarState = () => {
-  if (!navbar) return;
-  navbar.classList.toggle("scrolled", window.scrollY > 12);
-};
-
-updateNavbarState();
-window.addEventListener("scroll", updateNavbarState, { passive: true });
-
-const currentPath = window.location.pathname.split("/").pop() || "index.html";
-
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  const href = link.getAttribute("href");
-  if (!href || href.startsWith("#") || href.startsWith("tel:") || href.startsWith("mailto:")) return;
-
-  const normalizedHref = href.replace("./", "");
-  if ((currentPath === "" || currentPath === "index.html") && normalizedHref === "index.html") {
-    link.classList.add("active");
-  } else if (normalizedHref === currentPath) {
-    link.classList.add("active");
-  }
-});
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  revealElements.forEach((element) => {
-    const siblings = Array.from(element.parentElement?.querySelectorAll(".reveal") || []);
-    const index = siblings.indexOf(element);
-    if (index > 0) element.style.setProperty("--reveal-delay", `${Math.min(index * 70, 280)}ms`);
-    observer.observe(element);
-  });
-} else {
-  revealElements.forEach((element) => element.classList.add("show"));
-}
-
-const tiltCards = document.querySelectorAll(".stat-item, .info-card, .reference-card, .testimonial-card");
-const canUseHoverTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-if (canUseHoverTilt) {
-  tiltCards.forEach((card) => {
-    card.addEventListener("mousemove", (event) => {
-      const rect = card.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      card.style.setProperty("--tilt-x", `${(-y * 4).toFixed(2)}deg`);
-      card.style.setProperty("--tilt-y", `${(x * 4).toFixed(2)}deg`);
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.removeProperty("--tilt-x");
-      card.style.removeProperty("--tilt-y");
-    });
-  });
-}
-
-document.querySelectorAll(".flip-card").forEach((card) => {
-  card.setAttribute("tabindex", "0");
-  card.setAttribute("role", "button");
-  card.setAttribute("aria-pressed", "false");
-  const hasFineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-  card.querySelectorAll(".flip-back .card-cta-link-zone").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.stopPropagation();
-      window.location.href = link.href;
-    });
-    link.addEventListener("keydown", (event) => {
-      event.stopPropagation();
-    });
-  });
-
-  const toggleCard = () => {
-    const isFlipped = card.classList.toggle("is-flipped");
-    card.setAttribute("aria-pressed", String(isFlipped));
-  };
-
-  const navigateFromLowerLinkZone = (event) => {
-    const ctaLink = card.querySelector(".flip-back .card-cta-link-zone, .flip-back .mini-link");
-    const isBackVisible = card.classList.contains("is-flipped") || (hasFineHover && card.matches(":hover"));
-    if (!ctaLink || !isBackVisible) return false;
-
-    const rect = card.getBoundingClientRect();
-    const clientY = event.clientY ?? event.changedTouches?.[0]?.clientY;
-    if (typeof clientY !== "number") return false;
-    if (clientY < rect.top + rect.height * 0.8) return false;
-
-    event.preventDefault();
-    event.stopPropagation();
-    window.location.href = ctaLink.href;
-    return true;
-  };
-
-  card.addEventListener(
-    "pointerup",
-    (event) => {
-      if (hasFineHover && event.pointerType !== "touch") return;
-      navigateFromLowerLinkZone(event);
-    },
-    { capture: true }
-  );
-
-  card.addEventListener("click", (event) => {
-    const link = event.target.closest("a");
-    if (link) {
-      event.stopPropagation();
-      return;
-    }
-    if (navigateFromLowerLinkZone(event)) return;
-    toggleCard();
-  });
-  card.addEventListener("keydown", (event) => {
-    if (event.target.closest("a")) return;
-    if (event.key !== "Enter" && event.key !== " ") return;
-    event.preventDefault();
-    toggleCard();
-  });
-});
-
-const embeddedChatbotFrame = document.querySelector("[data-embedded-chatbot-frame]");
-
-if (embeddedChatbotFrame) {
-  const widgetUrl = new URL(
-    embeddedChatbotFrame.dataset.widgetSrc || "https://malerbot-mini.onrender.com/widget.html",
-    window.location.href
-  );
-  const botId = embeddedChatbotFrame.dataset.botId || "fp-demo";
-  const widgetTitle = embeddedChatbotFrame.dataset.widgetTitle || "F&P Anfrageannahme";
-
-  widgetUrl.searchParams.set("botId", botId);
-  widgetUrl.searchParams.set("sourceUrl", window.location.href);
-  widgetUrl.searchParams.set("sourceHost", window.location.host);
-  widgetUrl.searchParams.set("sourcePath", window.location.pathname);
-  widgetUrl.searchParams.set("pageTitle", document.title || "");
-  widgetUrl.searchParams.set("widgetTitle", widgetTitle);
-
-  embeddedChatbotFrame.src = widgetUrl.href;
-
-  const fitEmbeddedChatbot = () => {
-    const frameWrap = embeddedChatbotFrame.closest(".embedded-chatbot-frame-wrap");
-    if (!frameWrap) return;
-
-    const baseMobileWidth = 440;
-    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
-    const wrapWidth = frameWrap.clientWidth;
-    const availableWidth = Math.max(0, Math.min(wrapWidth || viewportWidth, viewportWidth - 24));
-    const shouldScale = viewportWidth <= 700 && availableWidth > 0 && availableWidth < baseMobileWidth;
-
-    if (!shouldScale) {
-      embeddedChatbotFrame.style.width = "";
-      embeddedChatbotFrame.style.height = "";
-      embeddedChatbotFrame.style.transform = "";
-      return;
-    }
-
-    const scale = availableWidth / baseMobileWidth;
-    embeddedChatbotFrame.style.width = `${baseMobileWidth}px`;
-    embeddedChatbotFrame.style.height = `${100 / scale}%`;
-    embeddedChatbotFrame.style.transform = `scale(${scale})`;
-  };
-
-  fitEmbeddedChatbot();
-  window.addEventListener("resize", fitEmbeddedChatbot);
-}
+const contactForm=document.querySelector('.contact-form');
+if(contactForm){const requestedService=new URLSearchParams(location.search).get('leistung');const select=contactForm.querySelector('select');if(requestedService&&Array.from(select.options).some(option=>option.value===requestedService))select.value=requestedService;}
+contactForm?.addEventListener('submit',event=>{event.preventDefault();if(!contactForm.reportValidity())return;const data=new FormData(contactForm);const subject='Projektanfrage: '+data.get('service');const body='Guten Tag F&P,\n\nich interessiere mich für '+data.get('service')+'.\n\n'+data.get('message')+'\n\nName: '+data.get('name')+'\nE-Mail: '+data.get('email')+'\nTelefon: '+(data.get('phone')||'nicht angegeben')+'\n';const mailto='mailto:info@fandp-it.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);const fallback=document.querySelector('[data-mail-fallback]');fallback.href=mailto;fallback.hidden=false;document.querySelector('.form-status').textContent='Die E-Mail wurde vorbereitet. Ihr E-Mail-Programm wird geöffnet. Erst dort entscheiden Sie, ob Sie sie versenden.';window.location.href=mailto;});

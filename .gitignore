@@ -1,0 +1,9 @@
+dist/
+.qa/
+node_modules/
+.netlify/
+.env
+.env.*
+!.env.example
+chrome-check-desktop/
+chrome-check-mobile/

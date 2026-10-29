@@ -1,0 +1,68 @@
+F&P MALER-DEMO – NEUES DESIGN
+
+PROJEKT
+Dies ist der bestehende Testwebsite-Ordner und weiterhin dasselbe GitHub-Projekt:
+https://github.com/jonathanpapenberg2000-droid/Kunden-Demo-Website
+
+Das neue Design stammt aus:
+..\Spaßseiten Beispiele\fp-farbatelier
+Der ursprüngliche Entwurfsordner wurde nicht verändert. Künftige Änderungen
+an der veröffentlichten Demo werden in DIESEM Testwebsite-Ordner vorgenommen.
+
+VERKNÜPFUNGEN
+Geschäftswebsite -> https://www.fandpit.de/
+Demo-Domain -> bestehendes Netlify-Projekt "fandpdemo"
+Chatbot -> https://malerbot-mini.onrender.com, Bot-ID "fp-demo"
+Die Empfängerzuordnung und Zugangsdaten bleiben im separaten Chatbot-Projekt
+beziehungsweise bei Render. Es gehören keine API- oder E-Mail-Passwörter hierher.
+
+Alle Seiten außer kontakt.html zeigen den bisherigen schwebenden Chat.
+kontakt.html enthält zusätzlich zum neuen E-Mail-Entwurfsformular den fest
+eingebetteten Chat unter #anfrage, ohne einen zweiten schwebenden Chat.
+Die bisherigen .html-Adressen bleiben vorhanden. badmodernisierung.html
+zeigt dieselbe neue Seite wie renovierung.html. Netlify unterstützt weiter
+die bereits verwendeten kurzen Adressen ohne .html über Pretty URLs.
+
+IMPRESSUM UND DATENSCHUTZ
+Die veröffentlichten Rechtstexte und tatsächlichen F&P-Kontaktdaten aus dem
+GitHub-Stand 5ef49b4 wurden übernommen. legal-content.mjs hält diese Inhalte.
+Die alten Platzhalter aus der Designstudie werden dadurch nicht veröffentlicht.
+
+BEARBEITEN UND PRÜFEN
+design.mjs          Kopf-/Fußzeile, Startseite und gemeinsame Seitenerzeugung
+build.mjs           Unterseiten und Inhalte
+style.css           Neues Design
+chatbot.mjs         Bestehende Chatbot-Adresse, Bot-ID und Einbettungen
+chatbot.js          Quell-Metadaten für den eingebetteten Kontakt-Chat
+chatbot.css         Darstellung der Chat-Einbettung und ergänzende Stile
+script.js           Navigation, Referenzfilter und E-Mail-Entwurf
+legal-content.mjs   Aktuelle Inhalte von Impressum und Datenschutzhinweisen
+assets/            Bilder des neuen Designs
+BILDNACHWEIS.txt    Bildherkunft aus dem Entwurf
+
+npm.cmd run dev     Vorschau auf http://127.0.0.1:4328
+npm.cmd run build   Erzeugt HTML, prüft Links/Einbindung und erstellt dist/
+npm.cmd run check   Prüft bereits erzeugte HTML-Dateien
+
+HTML-Dateien werden aus den Vorlagen neu erzeugt. Inhaltliche Änderungen
+deshalb in design.mjs, build.mjs oder legal-content.mjs vornehmen.
+
+VERÖFFENTLICHUNG
+Netlify bleibt mit main desselben GitHub-Repositorys verbunden.
+netlify.toml führt npm run build aus und veröffentlicht ausschließlich dist/.
+Dadurch gelangen Git-Metadaten, lokale Prüfdateien und Build-Quellen nicht
+in die veröffentlichte Website. Ein Push auf main löst die Veröffentlichung aus.
+Die bestehende Domainzuordnung und DNS-Einträge werden nicht verändert.
+
+SICHERUNG VOR DEM AUSTAUSCH
+..\Sicherungen\Testwebsite-vor-Designwechsel-20261029-171313
+Enthält den vorherigen lokalen Stand einschließlich der nicht eingecheckten
+style.css-Änderung, ein Git-Bundle und zusätzlich den aktuellen Stand vor dem
+Designaustausch unter live-stand-5ef49b4. design-original-sha256.json enthält
+Prüfsummen des unveränderten neuen Entwurfsordners.
+
+PRÜFUNG
+Build und Linkprüfung: neun Seiten, alle internen Dateien und Sprungziele.
+Chrome: neun Seiten bei Desktopbreite, 390 und 320 Pixeln ohne horizontales
+Überlaufen; schwebender Chat, Kontakt-iframe, Menü und Galeriefilter geprüft.
+Es wurden keine Testnachrichten, Bilder oder E-Mails versendet.
